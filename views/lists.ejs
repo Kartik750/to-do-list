@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do-List</title>
+    <link rel="stylesheet" href="/css/lists.css">
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/256/6193/6193691.png">
+</head>
+<body>
+    
+    <!-- <% if(kindOfDay==="saturday" || kindOfDay==="sunday"){ %>
+        <h1 style="color: brown;"><%= kindOfDay %> To-Do-List</h1>
+    <% } else { %>
+        <h1 style="color:aquamarine"><%= kindOfDay %> To-Do-List</h1>
+    <% } %> -->
+    
+    <h1 class="first">to-do-list</h1>
+    
+    <div class="main">
+
+    <div class="box">
+    
+    <div class="div1">
+        <h1><%= kindOfDay %></h1>
+    </div>    
+
+    <div class="div2">
+        <ul>
+            <!-- <li>buy food</li>
+            <li>cook food</li>
+            <li>eat food</li> -->
+            <input type="checkbox" name="ch1" id="ch1" checked>
+            <label for="ch1">buy food &nbsp &nbsp &nbsp &nbsp &nbsp<%= currtime%></label>
+            <br>
+            <input type="checkbox" name="ch2" id="ch2" checked>
+            <label for="ch2">cook food &nbsp &nbsp &nbsp &nbsp &nbsp<%= currtime%></label>
+            <br>
+            <input type="checkbox" name="ch3" id="ch3" checked>
+            <label for="ch3">eat food &nbsp &nbsp &nbsp &nbsp &nbsp<%= currtime%></label>
+            <br>
+            <!-- <li><%= AddedItem %></li> -->
+            <% for(var i=0;i<AddedItem.length;i++){ %>
+                <!-- <li>
+                    <%= AddedItem[i] %>
+                </li>  -->
+                <!-- <p><%= AddedItem[i] %></p> -->
+                <input type="checkbox" id="ch" checked>
+                <label for="ch"><%= AddedItem[i] %> &nbsp &nbsp &nbsp &nbsp &nbsp <%=currtime%></label>
+                <br>
+            <% } %>
+        </ul>   
+    </div>
+    
+
+    <div class="div3">
+        <form action="/" method="post">
+        <input type="text" name="newItem" placeholder="add new item" class="enter" required>
+        <button type="submit" name="submit">+</button>
+    </form>
+    </div>
+
+    </div>
+
+    </div>
+
+     <div class="footer">
+        <!-- © 2023 | Made with ❤️ by KARTIK ORAON -->
+        © 2023 |
+        <span class="auto-type"></span>
+    </div>
+
+    <div class="box2">
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="/js/lists.js"></script>
+</body>
+</html>
