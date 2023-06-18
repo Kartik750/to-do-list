@@ -61,7 +61,7 @@ body{
     /* color:crimson; */
     color:darkslateblue;
 }
-.div2 ul input:not(:checked) + label{
+.div2 ul input:checked + label{
     text-decoration: line-through;
 }
 
@@ -124,3 +124,7 @@ body{
     color: white;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
+/* .div2{
+    border: 1px solid red;
+} */

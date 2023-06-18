@@ -10,12 +10,6 @@
 </head>
 <body>
     
-    <!-- <% if(kindOfDay==="saturday" || kindOfDay==="sunday"){ %>
-        <h1 style="color: brown;"><%= kindOfDay %> To-Do-List</h1>
-    <% } else { %>
-        <h1 style="color:aquamarine"><%= kindOfDay %> To-Do-List</h1>
-    <% } %> -->
-    
     <h1 class="first">to-do-list</h1>
     
     <div class="main">
@@ -28,28 +22,16 @@
 
     <div class="div2">
         <ul>
-            <!-- <li>buy food</li>
-            <li>cook food</li>
-            <li>eat food</li> -->
-            <input type="checkbox" name="ch1" id="ch1" checked>
-            <label for="ch1">buy food &nbsp &nbsp &nbsp &nbsp &nbsp<%= currtime%></label>
-            <br>
-            <input type="checkbox" name="ch2" id="ch2" checked>
-            <label for="ch2">cook food &nbsp &nbsp &nbsp &nbsp &nbsp<%= currtime%></label>
-            <br>
-            <input type="checkbox" name="ch3" id="ch3" checked>
-            <label for="ch3">eat food &nbsp &nbsp &nbsp &nbsp &nbsp<%= currtime%></label>
-            <br>
-            <!-- <li><%= AddedItem %></li> -->
-            <% for(var i=0;i<AddedItem.length;i++){ %>
-                <!-- <li>
-                    <%= AddedItem[i] %>
-                </li>  -->
-                <!-- <p><%= AddedItem[i] %></p> -->
-                <input type="checkbox" id="ch" checked>
-                <label for="ch"><%= AddedItem[i] %> &nbsp &nbsp &nbsp &nbsp &nbsp <%=currtime%></label>
-                <br>
-            <% } %>
+            
+            <%AddedItem.forEach(function(e){%>
+                <form action="/delete" method="post">
+                    <input type="checkbox" name="checkbox" value="<%=e._id%>" id="ch" onChange="this.form.submit()">
+                    <label for="ch"><%= e.name %></label>
+                    <br>
+                    <input type="hidden" name="listName" value="<%=kindOfDay%>"></input>
+                </form>
+            <%})%>
+            
         </ul>   
     </div>
     
@@ -57,7 +39,7 @@
     <div class="div3">
         <form action="/" method="post">
         <input type="text" name="newItem" placeholder="add new item" class="enter" required>
-        <button type="submit" name="submit">+</button>
+        <button type="submit" name="list" value="<%=kindOfDay%>">+</button>
     </form>
     </div>
 
@@ -66,7 +48,6 @@
     </div>
 
      <div class="footer">
-        <!-- © 2023 | Made with ❤️ by KARTIK ORAON -->
         © 2023 |
         <span class="auto-type"></span>
     </div>
